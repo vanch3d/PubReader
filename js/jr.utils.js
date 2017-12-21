@@ -48,8 +48,9 @@
     ls                      = window.localStorage
 
 
+    // @todo[vanch3d]   Removed touch, behaved strangely on tablet (no more mouse event). Need to explore issue
     $.extend( $.jr.utils, {
-        touch:                  Modernizr != null ? Boolean(Modernizr.touch) : false,
+        touch:                  null,//Modernizr != null ? Boolean(Modernizr.touch) : false,
         transitionEndEvName:    transitionEndEventNames[ Modernizr.prefixed('transition') ],
         transformCssPropName:   Modernizr.prefixed('transform'),
         columnGapCssPropName:   Modernizr.prefixed('columnGap'),
