@@ -288,6 +288,11 @@
         base.handleObjectBox     = function (e) {
             if (e != null) {
                 e.preventDefault();
+
+                // @todo[vanch3d] triggered to remove popup
+                var $t = $(this);
+                $t.trigger('mouse.out.sensor');
+
                 // ignore click event on touch devices
                 if (! ($u.touch && e.type === 'click')) {
                     var $t = $(this)
