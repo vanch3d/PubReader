@@ -63,16 +63,23 @@
         base.init = function(){
             base.options = $.extend({},$.jr.PanelCmap.defaultOptions, options);
             base.$poc    = $(base.options.poc)
-            base.mapList = $('article h2[id]')
+
+            // @todo[vanch3d]   allow ALL headers to be added to menu
+            base.mapList = $('article :header[id]')
             base.$cnt    = base.$el.find('.cnt')
 
             base.$cnt.length == 1 ?
                 base.mapList.each( function () {
                     var $t = $(this),
-                        _id = $t.attr('id')
+                        _id = $t.attr('id'),
+                        _level = parseInt($t[0].nodeName.substring(1), 10),
+                        _title = $t.contents().clone() ;
+
                     $('<a href="#' + _id + '"></a>')
                         .on('click', base.handleLinks)
-                        .append($t.contents().clone())
+                        .append(_title)
+                        .attr('title', _title[0].data)
+                        .attr('class', "lvl"+_level)
                         .data('rid', _id)
                         .attr('style', $t.attr('style'))
                         .appendTo( base.$cnt );
