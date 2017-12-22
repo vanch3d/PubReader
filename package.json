@@ -1,0 +1,32 @@
+{
+  "name": "pubreader",
+  "version": "1.4.0",
+  "license": "MIT",
+  "description": "This is a suite of Javascript and CSS files for rendering journal articles in a PubReader™ view",
+  "homepage": "https://github.com/vanch3d/PubReader",
+  "bugs": {
+    "url": "https://github.com/vanch3d/PubReader"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vanch3d/PubReader"
+  },
+  "author": "Andrey Kolotev (https://github.com/ncbi)",
+  "contributors": [
+    "Nicolas Van Labeke (https://github.com/vanch3d)"
+  ],
+  "engines": {
+    "node": ">= 0.10.0"
+  },
+  "devDependencies": {
+    "grunt-contrib-concat": "^1.0.1",
+    "grunt-contrib-cssmin": "^2.2.1",
+    "grunt-contrib-jshint": "^1.1.0",
+    "grunt-contrib-qunit": "^2.0.0",
+    "grunt-contrib-uglify": "^3.2.1",
+    "grunt-contrib-watch": "^1.0.0"
+  },
+  "dependencies": {
+    "grunt": "^1.0.1"
+  }
+}
