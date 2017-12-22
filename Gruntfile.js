@@ -68,6 +68,30 @@ module.exports = function(grunt) {
         dest: 'dist/<%= pkg.name %>-lib.min.js'
       }
     },
+    cssmin: {
+      options: {
+          report: 'min',
+          mergeIntoShorthands: false,
+          roundingPrecision: -1
+      },
+      target: {
+          files: {'dist/pubreader.min.css' : [
+              'lib/css/normalize.css',
+              'lib/css/figpopup.css',
+              'css/jr.ui.css',
+              'css/jr.pagemanager.css',
+              'css/jr.pageturnsensor.css',
+              'css/jr.pageprogressbar.css',
+              'css/jr.objectbox.css',
+              'css/jr.panel.css',
+              'css/jr.panel.typo.css',
+              'css/jr.panel.cmap.css',
+              'css/jr.panel.istrip.css',
+              'css/jr.fip.css',
+              'css/jr.content.css'
+          ]}
+      }
+    },
     jshint: {
       options: {
         curly: true,
@@ -111,12 +135,13 @@ module.exports = function(grunt) {
   // These plugins provide necessary tasks.
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-uglify');
+  grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-contrib-qunit');
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-watch');
 
   // Default task.
   //grunt.registerTask('default', ['jshint', 'qunit', 'concat', 'uglify']);
-  grunt.registerTask('default', ['concat', 'uglify']);
+  grunt.registerTask('default', ['concat', 'uglify','cssmin']);
 
 };
